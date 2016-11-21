@@ -1,0 +1,901 @@
+/*样式*/
+@import "main";
+@mixin clearfix {
+    content: "";
+    display: block;
+    clear: both;
+}
+@mixin whb($width, $height, $background) {
+    width: $width;
+    height: $height;
+    background: $background;
+}
+@mixin center {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+@mixin left-top($left, $top, $bottom) {
+    position: absolute;
+    left: $left;
+    top: $top;
+    bottom: $bottom;
+}
+@mixin left-right($left, $right, $top) {
+    position: absolute;
+    left: $left;
+    right: $right;
+    top: $top;
+}
+@mixin bg-img($image, $repeat, $position) {
+    background-image: $image;
+    background-repeat: $repeat;
+    background-position: $position;
+}
+@mixin bg-position($w, $h, $top) {
+    position: absolute;
+    width: $w;
+    height: $h;
+    top: $top;
+}
+@mixin position($left, $top, $right, $bottom) {
+    position: absolute;
+    left: $left;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+}
+/*页头*/
+#iCloud {
+    @include whb(389px,638px,#383836);
+    @include left-top(0px,0px,0px);
+    position: relative;
+}
+.ic-view {
+    margin: 0;
+    border: 0 solid transparent;
+}
+/*left-top-view*/
+.left-top-view {
+    @include whb(389px,44px,transparent);
+    @include left-right(0px,0px,0px);
+    border-bottom: 1px solid #1a1a1a;
+    ul {
+        @include whb(179px,100%,transparent);
+        &:after {
+            @include clearfix;
+        }
+    }
+    li {
+        float: left;
+        cursor: pointer;
+    }
+    li:nth-child(1) {
+        @include bg-position(56px,16px,13px);
+        left: 11px;
+        bottom: 18px;
+    }
+    li:nth-child(2) {
+        @include bg-position(167px,31px,4px);
+        left: 63px;
+    }
+    .logo {
+        @include bg-img(url("../images/packed-5.png"),no-repeat,0 -588px);
+        color: #fff;
+    }
+    .sx-view {
+        .info {
+            font-size: 21px;
+            line-height: 31px;
+            padding-left: 10px;
+            color: #9C9C9B;
+        }
+        .info-img {
+            right: 54px;
+            @include bg-position(11px,7px,50%);
+            @include bg-img(url("../images/packed-5.png"),no-repeat,-155px -647px);
+        }
+    }
+    li:nth-child(3) {
+        @include bg-position(23px,23px,25%);
+        right: 9px;
+    }
+    .add {
+        @include bg-img(url("../images/packed-5.png"),no-repeat,-46px -526px);
+    }
+}
+/*info-inner*/
+.sx-view .info-inner {
+    @include whb(852px,334px,#fff);
+    position: absolute;
+    top: 16px;
+    left: -51px;
+    border-radius: 10px;
+    padding: 10px;
+    position: relative;
+    display: none;
+    ul {
+        @include whb(832px,314px,#fff);
+        border: 1px solid #383838;
+        border-radius: 10px;
+        padding: 10px;
+        @include center;
+        &:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+    }
+}
+/*left-top-view End*/
+/*left-bottom-view*/
+.collection-top {
+    //overflow: hidden;
+    @include position(0px,0px,0px,0px);
+    margin: 0;
+    border: 0 solid transparent;
+    height: 594px;
+}
+.left-bottom-view {
+    @include bg-position(100%,auto,44px);
+    position: relative;
+    .ic-outline {
+        height: 45px;
+        @include left-top(4px,0px,0px); //      background: red;
+        right: 0;
+        cursor: pointer;
+        &:after {
+            @include clearfix;
+        }
+        li {
+            float: left;
+        }
+        .ic-nz {
+            @include bg-position(42px,42px,0px);
+            left: 0;
+            @include bg-img(url("../images/packed-5.png"),no-repeat,0px -359px);
+        }
+        .ic-info {
+            @include whb(192px,24px,transparent);
+            color: #fff;
+            line-height: 40px;
+            position: absolute;
+            left: 41px;
+            font-size: 17px;
+            white-space: nowrap;
+        }
+    }
+    .row-top {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: -2px;
+        height: 2px;
+        @include bg-img(url("../images/packed-2.png"),repeat,0px 0px);
+    }
+    .row-bottom {
+        position: absolute;
+        right: 0;
+        top: 45px;
+        height: 2px;
+        left: 0;
+        @include bg-img(url("../images/packed-11.png"),repeat,0px 0px);
+        background-size: 260px 2px;
+    }
+}
+.collection-bottom {
+    @include position(0px,45px,0px,0px);
+    margin-top: 45px;
+    min-height: 549px;
+    margin: 0;
+    border: 0 solid transparent;
+    overflow: auto;
+    .active {
+        background: #1A1A1A;
+    }
+}
+.sc-outline {
+    //  @include position(0px,45px,0px,0px);
+    @include whb(389px,44px,transparent);
+    //  @include position(4px,0px,0px,0px);
+    position: relative;
+    &:after {
+        @include clearfix;
+    }
+    //  .collection-color-icon {
+    //      //      @include whb(389px,44px,transparent);
+    //      &:after {
+    //          @include clearfix;
+    //      }
+    //  }
+    >div {
+        float: left;
+    }
+    >.icon {
+        @include left-top(12px,12px,0px);
+        height: 17px;
+        width: 17px;
+        @include bg-img(url("../images/packed-5.png"),no-repeat,-51px -571px);
+    }
+    >.title {
+        @include position(42px,0px,42px,0px);
+        height: 44px;
+        line-height: 44px;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        white-space: nowrap !important;
+        font-size: 17px;
+        color: #fff;
+    }
+    >.share {
+        @include bg-img(url("../images/packed-5.png"),no-repeat,-119px -497px);
+        position: absolute;
+        top: 9px;
+        right: 10px;
+        width: 23px;
+        height: 23px;
+        margin: 0;
+        cursor: pointer;
+        &:hover {
+            color: #fff;
+        }
+    }
+    .row-bottom {
+        position: absolute;
+        left: 44px;
+        right: 0;
+        bottom: 0;
+        height: 2px;
+        @include bg-img(url("../images/packed-11.png"),no-repeat,0px 0px);
+        background-size: 342px 2px;
+    }
+}
+.sc-outline input {
+    width: 293px;
+    height: 44px;
+    position: absolute;
+    left: 40px;
+    padding-left: 15px;
+    font-size: 20px;
+    color: #dfdfdf;
+    outline: none;
+    border: none;
+    background: transparent;
+}
+/*left-bottom-view End*/
+/*right-main-view*/
+#iClouds {
+    @include whb(977px,638px,url(../images/packed-4.png));
+    @include position(389px,0px,0px,0px);
+    min-width: 680px;
+}
+.right-top-view {
+    position: relative;
+    @include whb(100%,44px,transparent);
+    border-bottom: 1px solid rgba(128,128,128,0.35);
+    &:after {
+        @include clearfix;
+    }
+    div {
+        float: left;
+    }
+    >.left-top {
+        position: relative;
+        height: 44px;
+        width: 50%;
+        >.left-icon {
+            position: absolute;
+            left: 11px;
+            width: 24px;
+            top: 8px;
+            height: 24px;
+            @include bg-img(url("../images/packed-5.png"),no-repeat,-138px -359px);
+        }
+        >input {
+            display: block;
+            @include whb(100%,43px,transparent);
+            border: 0;
+            outline: none;
+            padding-left: 42px;
+            color: #ccc;
+            font-size: 20px;
+            &:hover {
+                border-right: 1px solid rgba(128,128,128,0.35);
+                background: #fff;
+            }
+        }
+    }
+    >.right-top {
+        position: absolute;
+        right: 2px;
+        top: 0;
+        bottom: 0;
+        @include whb(136px,44px,transparent);
+        color: #333;
+        cursor: pointer;
+        >label {
+            line-height: 44px;
+            font-weight: 100;
+            font-size: 21px;
+            padding-right: 18px;
+            color: #ccc;
+            cursor: pointer;
+        }
+        >.info-img {
+            right: 54px;
+            @include bg-position(11px,7px,50%);
+            @include bg-img(url("../images/packed-5.png"),no-repeat,-155px -647px);
+            color: #333;
+        }
+        >.line {
+            position: absolute;
+            margin-top: -11px;
+            right: 44px;
+            width: 1px;
+            top: 25%;
+            height: 22px;
+            overflow: hidden;
+            margin: 0;
+            border: solid 0 transparent;
+            background-color: #e5e5e5;
+        }
+        >.help {
+            @include bg-position(22px,22px,50%);
+            left: 83%;
+            margin-top: -11px;
+            margin-left: -11px;
+            @include bg-img(url("../images/packed-5.png"),no-repeat,-137px -526px);
+        }
+    }
+}
+/*right-center-view*/
+.right-center-view {
+    @include position(0px,69px,0px,0px);
+    @include whb(977px,567,transparent);
+    .right-center {
+        @include position(0px,0px,0px,0px);
+    }
+}
+@mixin img-icon($w, $h, $ml, $mt) {
+    width: $w;
+    height: $h;
+    margin-left: $ml;
+    margin-top: $mt;
+}
+.right-title {
+    position: absolute;
+    left: 28px;
+    right: 0;
+    top: 0;
+    height: 62px;
+    .title {
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        white-space: nowrap !important;
+        font-size: 40px;
+        line-height: 1.2;
+        cursor: default;
+        color: #41ACF9;
+        font-weight: 100;
+    }
+    .right-button {
+        position: absolute;
+        right: 30px;
+        top: 17px;
+        height: 27px;
+        width: 39px;
+        cursor: pointer;
+        label {
+            color: #41ACF9;
+        }
+        .input {
+            @include whb(294px,37px,transparent);
+            margin: 20px auto;
+            z-index: 30;
+            padding: 10px;
+            input {
+                @include whb(294px,37px,#fff);
+                margin: -10px;
+                position: absolute;
+                padding-left: 15px;
+                font-size: 21px;
+                border: 1px solid #D9D9D9;
+                border-radius: 3px;
+            }
+        }
+    }
+    .right-xk {
+        @include whb(365px,236px,#fff);
+        position: absolute;
+        right: 58px;
+        top: -75px;
+        z-index: 10;
+        border-radius: 10px;
+        padding: 8px;
+        box-shadow: 0 0 9px rgba(0,0,0,0.5); //      display:none;
+        .xk-info {
+            @include whb(355px,226px,#fff);
+            @include center;
+            border-radius: 8px;
+            border: 1px solid #E5E5E5;
+        }
+        .xk-img {
+            @include whb(100%,168px,transparent);
+            position: absolute;
+            right: 1px;
+            top: 0;
+            border-top-right-radius: 8px;
+            border-top-left-radius: 8px;
+            border-bottom: 1px solid #e5e5e5;
+            margin-right: -1px;
+        }
+        .xk-button {
+            @include whb(100%,57px,transparent);
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+            &:after {
+                @include clearfix;
+            }
+            li {
+                float: left;
+                cursor: pointer;
+            }
+            .delete {
+                line-height: 25px;
+                color: #ff3b30;
+                padding: 17px;
+                margin-right: 60px;
+                margin-left: 15px;
+            }
+            .cancel {
+                margin: 0 10px 0 66px;
+                line-height: 25px;
+                color: #1D89FF;
+                padding: 17px;
+            }
+            .finish {
+                @include whb(55px,26px,transparent);
+                line-height: 26px;
+                margin-top: 17px;
+                font-weight: 600;
+                color: #007AFF;
+                text-align: right;
+                white-space: nowrap;
+                letter-spacing: 3px;
+                border-left: 1px solid #999;
+            }
+        }
+    }
+    .color {
+        @include whb(294px,auto,transparent);
+        margin: 0 auto;
+        .tle {
+            padding: 10px 10px 10px 0;
+        }
+        .color-img {
+            @include whb(316px,33px,transparent);
+            margin-left: -10px;
+            li {
+                float: left;
+                height: 33px;
+                width: 33px;
+                margin-left: 10px;
+                div {
+                    @include img-icon(25px,25px,4px,4px); //                  background-image: url("../images/stylesheet-1.png");
+                    //background-repeat: no-repeat;
+                }
+            }
+            li.first div {
+                margin-left: 0; //background-position: 0 -231px;
+            }
+        }
+    }
+}
+/*利用 list和map循环来写样式*/
+$colors-list: purple,green,blue,yellow,blrown,red,orange;
+$Map: ( "purple":#C970E3 0px -231px, "green":#6EDC32 0px -256px, "blue":#40ABF8 0px -281px, "yellow":#F3CB00 0px -306px, "blrown":#A0855E 0px -331px, "red":#F62368 0px -356px, "orange":#F99600 0px -381px );
+@each $v in map_keys($Map) {
+    $l: map_get($Map,$v);
+    .imgs .img-icon.#{$v} {
+        background: url("../images/stylesheet-1.png");
+        background-position: nth($l,2) nth($l,3);
+        background-repeat: no-repeat;
+    }
+}
+/*利用 list和map循环来写样式  End*/
+@mixin row-top {
+    @include left-right(30px,0px,0px);
+    height: 2px;
+    background-image: url("../images/packed-3.png");
+    background-position: 0 0;
+    background-repeat: repeat;
+    z-index: 5;
+}
+@mixin row-bottom {
+    position: absolute;
+    right: 0;
+    left: 30px;
+    height: 2px;
+    background-image: url("../images/packed-3.png");
+    background-position: 0 0;
+    background-repeat: repeat;
+    z-index: 5;
+}
+.right-inner {
+    @include position(0px,56px,0px,0px);
+    .row-top {
+        @include row-top;
+    }
+    .finish {
+        height: auto;
+        @include position(0px,0px,0px,0px);
+    }
+    .complete {
+        @include left-right(30px,0px,0px);
+        height: 52px;
+        .btn {
+            position: absolute;
+            cursor: pointer;
+            left: 11px;
+            top: 16px;
+            margin: 0;
+            width: 23px;
+            height: 23px;
+            background-image: url("../images/packed-5.png");
+            background-position: -23px -526px;
+            background-repeat: no-repeat;
+            &.active {
+                background-position: -96px -497px;
+            }
+        }
+        .container {
+            position: absolute;
+            top: 16px;
+            left: 51px;
+            margin: 0;
+            overflow: hidden !important;
+            text-overflow: ellipsis !important;
+            white-space: nowrap !important;
+            color: #999;
+            font-size: 19px;
+            cursor: default;
+        }
+        /*清除所有事项*/
+        .clear {
+            position: absolute;
+            right: 35px;
+            top: 16px;
+            font-size: 19px;
+            color: #999;
+            cursor: pointer;
+            display: none;
+        }
+    }
+    /*完成事项列表*/
+    .complete-list {
+        @include whb(100%,auto,transparent);
+        margin-top: 52px;
+        overflow: auto;
+        display: none;
+        &:after {
+            @include clearfix;
+        }
+        .com-list-title {
+            @include whb(100%,42px,transparent);
+            z-index: 1;
+            .row-top {
+                @include row-top;
+                top: 52px;
+            }
+            .title {
+                height: 42px;
+                line-height: 42px;
+                margin-left: 30px;
+                white-space: nowrap;
+                letter-spacing: 1px;
+                font-size: 16px;
+                font-weight: 400;
+                color: #ccc;
+            }
+            .row-bottom {
+                @include row-bottom;
+                left: 30px;
+                height: 1px;
+            }
+        }
+        .com-list-inner {
+            @include whb(100%,52px,transparent);
+            padding-left: 83px;
+            z-index: 333;
+            position: relative;
+            .active {
+                @include whb(100%,52px,#E4F0E0);
+                border-top: 1px solid #49BF1F;
+                border-bottom: 1px solid #49BF1F;
+                z-index: 333;
+            }
+            input.list-inner {
+                display: block;
+                float: left;
+                padding-left: 15px;
+                height: 50px;
+                margin-top: 1px;
+                width: 777px;
+                outline: none;
+                font-size: 20px;
+                border: none;
+                background: none;
+            }
+            &:hover .com-list-title .row-bottom {
+                display: none;
+            }
+            a.button {
+                display: block;
+                position: absolute;
+                left: 36px;
+                height: 32px;
+                width: 32px;
+                margin-top: 9px;
+                cursor: pointer;
+                border: transparent !important;
+                .checked {}
+            }
+            .x-info {
+                display: block;
+                float: left;
+                line-height: 52px;
+                white-space: 2px;
+                white-space: nowrap;
+                letter-spacing: 2px;
+                font-size: 20px;
+            }
+            .inner-row-bottom {
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                left: 83px;
+                width: 91.5%;
+                height: 1px;
+                background-image: url("../images/packed-3.png");
+                background-position: 0 0;
+                background-repeat: repeat;
+                z-index: 5;
+            }
+            .inner-row-bottom2 {
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                left: 30px;
+                width: 96.5%;
+                height: 1px;
+                background-image: url("../images/packed-3.png");
+                background-position: 0 0;
+                background-repeat: repeat;
+                z-index: 5;
+            }
+        }
+    }
+    /*建立新项目左侧图标*/
+    #new {
+        width: 100%;
+        height: 52px;
+        margin-top: 52px;
+        position: relative;
+        &:after {
+            @include clearfix;
+        }
+        .new-img {}
+        input.new {
+            width: 888px;
+            height: 50px;
+            margin-top: 0;
+            border: none;
+            margin-left: 81px;
+            padding-left: 15px;
+            outline: none;
+            font-size: 20px;
+            background: transparent;
+        }
+    }
+    /*新项目*/
+    .project {
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 52px;
+        margin-top: 52px;
+        .row-top {
+            left: 81px;
+        }
+        .row-bottom {
+            @include row-bottom;
+            left: 81px;
+            bottom: 0;
+        }
+        .pro-title {
+            position: absolute;
+            top: 14px;
+            left: 81px;
+            color: #999;
+            font-size: 19px;
+            cursor: pointer;
+        }
+    }
+}
+/*right-main-view End*/
+/*clear清除选项*/
+#clear {
+    @include whb(450px,170px,#fff);
+    transition: transform 0.06s ease-in-out 0s;
+    transform: scale(0,0);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    @include center;
+    border-radius: 15px;
+    z-index: 999;
+    box-shadow: 0 0 0 1000px rgba(0,0,0,.39);
+    &.active {
+        transform: scale(1,1);
+    }
+    .clear-img {
+        position: absolute;
+        left: 25px;
+        top: 19px;
+        height: 65px;
+        width: 68px;
+        @include bg-img(url("../images/packed-5.png"),no-repeat,-68px -167px);
+    }
+    .clear-inner {
+        @include whb(350px,78px,transparent);
+        margin-left: 95px;
+        margin-top: 7px;
+        .sc {
+            word-wrap: break-word;
+            font-size: 19px;
+            line-height: 1.2em;
+            overflow: visible;
+            font-size: 21px;
+            font-weight: normal;
+            color: #313131;
+            padding-left: 15px;
+            margin-bottom: 5px;
+        }
+        .ms {
+            margin-top: 11px;
+            font-size: 17px;
+            line-height: 21px;
+            color: #474747;
+            overflow: visible;
+            word-wrap: break-word;
+            padding-left: 15px;
+        }
+    }
+    .bttn {
+        @include whb(100%,44px,transparent);
+        margin-top: 20px;
+        &:after {
+            @include clearfix;
+        }
+        li {
+            float: left;
+            width: 139px;
+            text-align: right;
+            height: 24px;
+            line-height: 1.5;
+            padding-right: 26px;
+            margin-top: 10px;
+            a {
+                font-size: 16px;
+                font-weight: 300;
+            }
+        }
+        .qx {
+            margin-left: 146px;
+            border-right: 1px solid #999;
+            a {
+                color: #308CFB;
+            }
+        }
+        .qc {
+            border-right: none;
+            margin-left: 26px;
+            a {
+                color: #167EFB;
+                font-weight: 600;
+            }
+        }
+    }
+}
+/*clear清除选项  End*/
+/*list map 循环*/
+/*建立新项目左侧图标*/
+$color-list: purple,green,blue,yellow,blrown,red,orange;
+$map3: ( "purple":#C970E3 -128px -401px, "green":#6EDC32 -136px -199px, "blue":#40ABF8 -106px -359px, "yellow":#F3CB00 -128px -433px, "blrown":#A0855E -136px -167px, "red":#F62368 -64px -433px, "orange":#F99600 0px -401px );
+@each $v in map_keys($map3) {
+    $l: map_get($map3,$v);
+    .com-list-inner .checked.#{$v} {
+        background: url("../images/packed-5.png");
+        background-repeat: no-repeat;
+        background-position: nth($l,2) nth($l,3);
+        width: 33px;
+        height: 33px;
+        border: none;
+        margin: 0;
+    }
+}
+/*建立新项目左侧图标 End*/
+/*边框及背景颜色*/
+$map5: ( "purple":#C970E3 #F6ECF9, "green":#6EDC32 #E5F1E1, "blue":#40ABF8 #E0EFF7, "yellow":#F3CB00 #F5F0DF, "blrown":#A0855E #EEEBE7, "red":#F62368 #FAE5EB, "orange":#F99600 #F1E4D8);
+@each $v in map_keys($map5) {
+    $l: map_get($map5,$v);
+    .com-list-inner.active.#{$v} {
+        background: nth($l,2);
+        border-top: 1px solid nth($l,1);
+        border-bottom: 1px solid nth($l,1);
+        z-index: 333;
+    }
+    #new.active.#{$v} {
+        background: nth($l,2);
+        border-top: 1px solid nth($l,1);
+        border-bottom: 1px solid nth($l,1);
+        z-index: 333;
+    }
+}
+/*边框及背景颜色 End*/
+$color-list: purple,green,blue,yellow,blrown,red,orange;
+$map2: ( "purple":#C970E3 -64px -401px, "green":#6EDC32 -74px -359px, "blue":#40ABF8 0px -433px, "yellow":#F3CB00 -32px -465px, "blrown":#A0855E -32px -433px, "red":#F62368 -96px -433px, "orange":#F99600 -136px -235px );
+@each $v in map_keys($map2) {
+    $l: map_get($map2,$v);
+    #new .new-img.#{$v} {
+        background: url("../images/packed-5.png");
+        background-position: nth($l,2) nth($l,3);
+        background-repeat: no-repeat;
+        height: 32px;
+        width: 32px;
+        margin: 0;
+        border: none;
+        position: absolute;
+        left: 36px;
+        top: 8px;
+    }
+}
+@each $v in map_keys($map2) {
+    $l: map_get($map2,$v);
+    .right-button .ngxk.#{$v} {
+        color: nth($l,1);
+    }
+    .right-inner .clear.#{$v} {
+        color: nth($l,1);
+    }
+    .x-info.#{$v} {
+        color: nth($l,1);
+    }
+}
+/*右侧列表循环*/
+$color-list: purple,green,blue,yellow,blrown,red,orange;
+$map1: ( "purple":#C970E3 -34px -571px, "green":#6EDC32 -0px -571px, "blue":#40ABF8 -51px -571px, "yellow":#F3CB00 -85px -571px, "blrown":#A0855E -133px -549px, "red":#F62368 -68px -571px, "orange":#F99600 -102px -571px );
+@each $v in map_keys($map1) {
+    $l: map_get($map1,$v);
+    .right-center-view .title.#{$v} {
+        color: nth($l,1);
+    }
+    .right-xk .xk-info .lb.#{$v} {
+        color: nth($l,1);
+    }
+}
+/*左侧列表循环*/
+$color-list: purple,green,blue,yellow,blrown,red,orange;
+$map: ( "purple":#C970E3 -34px -571px, "green":#6EDC32 -0px -571px, "blue":#40ABF8 -51px -571px, "yellow":#F3CB00 -85px -571px, "blrown":#A0855E -133px -549px, "red":#F62368 -68px -571px, "orange":#F99600 -102px -571px );
+@each $v in map_keys($map) {
+    $l: map_get($map,$v);
+    .sc-outline .icon.#{$v} {
+        background-image: url("../images/packed-5.png");
+        background-position: nth($l,2) nth($l,3);
+    }
+}

@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en" ng-app="iCloud">
+
+	<head>
+		<meta charset="UTF-8" />
+		<title>iCloud</title>
+		<link rel="stylesheet" href="./css/iCloud.css" />
+	</head>
+
+	<body ng-controller="mainCloud">
+
+		<!--left-main-view-->
+		<div id="iCloud" class="ic-view left-main-view">
+			<!--left-top-view-->
+			<div class="ic-view left-top-view">
+				<ul>
+					<li class="logo"></li>
+					<li class="sx-view">
+						<div class="info">提醒事项</div>
+						<div class="info-img"></div>
+						<div class="info-inner">
+							<ul></ul>
+						</div>
+					</li>
+					<li class="add" ng-click="addList();save2local()"></li>
+				</ul>
+			</div>
+			<!--left-bottom-view-->
+			<div class="ic-view left-bottom-view">
+				<div class="collection-top">
+					<ul class="ic-outline">
+						<li class="ic-nz"></li>
+						<li class="ic-info">已计划</li>
+					</ul>
+					<div class="row-top"></div>
+					<div class="row-bottom"></div>
+				</div>
+
+				<!--<ul class="collection-bottom" id="lists">-->
+				<div my-ul>
+					<li class="sc-outline" ng-repeat="v in lists track by $index" ng-click="lists[cu].name;save2local()" ng-click="addList();save2local()">
+						<!--<ul class="collection-color-icon">-->
+						<div class="icon {{v.theme}}"></div>
+						<div class="title"></div>
+						<input type="text" ng-model="v.name" ng-keyup="save2local()" />
+						<!--<input type="text" ng-model="v.name" ng-keyup="save2local()" />-->
+						<div class="share"></div>
+						<!--</ul>-->
+						<div class="row-bottom"></div>
+					</li>
+				</div>
+				<!--</ul>-->
+
+			</div>
+		</div>
+		<!--left-main-view End-->
+
+		<!--right-main-view-->
+		<div id="iClouds" class="right-amin-view">
+			<!--right-top-->
+			<div class="right-top-view">
+				<div class="left-top search">
+					<div class="left-icon"></div>
+					<input type="text" placeholder="搜索所有提醒" />
+				</div>
+				<div class="right-top">
+					<label for="">刘鹏辉</label>
+					<div class="info-img"></div>
+					<div class="line"></div>
+					<div class="help"></div>
+				</div>
+			</div>
+			<!--right-top End-->
+
+			<!--right-center-->
+			<div class="right-center-view">
+				<div class="right-cetner">
+					<div class="right-title">
+						<div class="title {{lists[cu].theme}}">{{lists[cu].name}}</div>
+						<!--右侧选项点击-->
+						<div ng-xk>
+							<label for="" class="ngxk {{lists[cu].theme}}">选项</label>
+							<ul class="right-xk">
+								<li class="xk-info">
+									<div class="xk-img">
+										<div class="input">
+											<input type="text" class="lb {{lists[cu].theme}}" ng-model="lists[cu].name" ng-keyup="lists[cu].theme;save2local()" />
+										</div>
+										<div class="color">
+											<div class="tle {{lists[cu].theme}}">
+												列表颜色
+											</div>
+											<ul class="color-img" id="theme">
+												<li class="imgs first" ng-repeat="v in theme track by $index" ng-click="lists[cu].theme=v.color;save2local()">
+													<div class="img-icon {{v.color}} {{lists[cu].theme===v.color?v.color:''}}"></div>
+												</li>
+												<!--<li class="imgs">
+													<div class="img-icon"></div>
+												</li>
+												<li class="imgs">
+													<div class="img-icon"></div>
+												</li>
+												<li class="imgs">
+													<div class="img-icon"></div>
+												</li>
+												<li class="imgs">
+													<div class="img-icon"></div>
+												</li>
+												<li class="imgs">
+													<div class="img-icon"></div>
+												</li>
+												<li class="imgs">
+													<div class="img-icon"></div>
+												</li>-->
+											</ul>
+										</div>
+									</div>
+									<ul xk-button class="">
+										<li class="delete" ng-click="delete()">删除</li>
+										<li class="cancel">取消</li>
+										<li class="finish">完成</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+						<!--右侧选项点击  End-->
+					</div>
+					<div class="right-inner">
+						<div class="row-top"></div>
+						<div finish class="">
+							<div class="complete">
+								<div class="btn"></div>
+								<div class="container">已完成：<b>{{count()}}</b> 项</div>
+								<div class="clear {{lists[cu].theme}}" ng-click="clear()">清除已完成事项</div>
+							</div>
+							<!--中间完成项目-->
+							<ul complete-list class="" id="newimg">
+								<li class="com-list-title">
+									<div class="row-top"></div>
+									<div class="title">2016年11月18日
+										<span>星期五</span>
+									</div>
+									<!--<input type="date" />-->
+									<div class="row-bottom"></div>
+								</li>
+								<li class="com-list-inner com-list" ng-class='lists[cu].theme' ng-if="v.state==1" ng-repeat="v in lists[cu].todos track by $index">
+									<input type="text" class="list-inner" value="" {{v.name}} ng-model="v.name" />
+									<a href="javascript:;" class="button">
+										<div class="checked {{lists[cu].theme}}" ng-click="pd($index);save2local()"></div>
+									</a>
+									<span class="x-info {{lists[cu].theme}}">详细信息</span>
+									<div class="inner-row-bottom"></div>
+									<!--<div class="inner-row-bottom2"></div>-->
+								</li>
+								<!--<li class="com-list-inner {{lists[cu].theme}}" ng-class='lists[cu].them' ng-if="v.state==1" ng-repeat="v in lists[cu].todos track by $index">
+									<input type="text" class="list-inner" value="" {{v.name}} ng-model="v.name"/>
+									<a href="javascript:;" class="button">
+										<div class="checked {{lists[cu].theme}}" ng-click="pd($index);save2local()"></div>
+									</a>
+									<span class="x-info {{lists[cu].theme}}">详细信息</span>
+									<!--<div class="inner-row-bottom"></div>-->
+								<!--<div class="inner-row-bottom2"></div>-->
+								<!--</li>-->
+							</ul>
+							<!--中间已完成项目   End-->
+
+							<!--新建项目-->
+							<div id="new" ngsc class="newx" ng-repeat="v in lists[cu].todos track by $index" ng-class='lists[cu].theme' ng-if="v.state==0">
+								<div class="new-img {{lists[cu].theme}}" ng-click="pd($index);save2local()"></div>
+								<input type="text" class="new" value="{{v.name}}" ng-model="v.name" />
+							</div>
+
+							<div project class="">
+								<div class="row-top"></div>
+								<div class="row-bottom"></div>
+								<div class="pro-title" z-j ng-click="addlist2($index);save2local()">新项目...</div>
+							</div>
+							<!--新建项目     End-->
+
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--right-center End-->
+
+		</div>
+		<!--right-main-view End-->
+
+		<!--clear-->
+		<div id="clear">
+			<div class="clear-img"></div>
+			<div class="clear-inner">
+				<p class="sc">是否清除所有已完成提醒？</p>
+				<p class="ms">所有已完成的提醒事项将永久删除。您不能撤销此操作。</p>
+			</div>
+			<ul class="" bttn>
+				<li class="qx">
+					<a href="javascript:;" ng-click="">取消</a>
+				</li>
+				<li class="qc">
+					<a href="javascript:;" ng-click="clear()">清除已完成事项</a>
+				</li>
+			</ul>
+		</div>
+		<!--clear End-->
+	</body>
+
+</html>
+<script type="text/javascript" src="./js/jquery.min.js"></script>
+<script type="text/javascript" src="./js/Angular.js"></script>
+<script type="text/javascript" src="./js/iCloud.js"></script>
